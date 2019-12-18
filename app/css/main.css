@@ -678,6 +678,8 @@ button:active, button:focus, button:visited {
 @media only screen and (max-width: 700px) {
   .layout {
     height: auto;
+    min-height: -webkit-calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
     overflow: visible;
   }
 }
