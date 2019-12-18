@@ -799,9 +799,18 @@ button:active, button:focus, button:visited {
 
 @media only screen and (max-width: 700px) {
   .blank__content {
+    min-height: -webkit-calc(100vh - -webkit-calc(40px * 3) - 9px);
+    min-height: calc(100vh - calc(40px * 3) - 9px);
     height: auto;
     padding: 10px 0;
     overflow: visible;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .blank__content {
+    min-height: -webkit-calc(100vh - -webkit-calc(40px * 2) - 62px - 9px);
+    min-height: calc(100vh - calc(40px * 2) - 62px - 9px);
   }
 }
 
@@ -1072,6 +1081,13 @@ button:active, button:focus, button:visited {
   margin-right: 15px;
 }
 
+@media only screen and (max-width: 700px) {
+  .blank__testimonials-item-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .blank__testimonials-item-title span {
   font-size: 10px;
   color: #2773b9;
@@ -1086,6 +1102,12 @@ button:active, button:focus, button:visited {
   height: 42px;
   border: 2px solid #e6e6e6;
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+  .blank__testimonials-item-circle {
+    margin-left: 15px;
+  }
 }
 
 .blank__testimonials-item-circle--green {
