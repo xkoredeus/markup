@@ -180,6 +180,7 @@ button
           opacity: 1
           background-color: #8DC540
       &-wrap
+        position: relative
         &:not(:last-child)
           margin-right: 35px
           +r(1200)
@@ -203,6 +204,51 @@ button
             &:hover
               &::after
                 opacity: 1
+        &:hover
+          .header__navigation
+            &-link
+              &::before
+                opacity: 1
+            &-dropdown
+              visibility: visible
+              opacity: 1
+              transform: translateY(0)
+    &-dropdown
+      position: absolute
+      z-index: 4
+      top: 100%
+      padding-top: 5px
+      +ease
+      visibility: hidden
+      opacity: 0
+      transform: translateY(-20px)
+      transition: all .4s cubic-bezier(.23,1,.32,1)
+      &-list
+        width: 150px
+        background-color: #fff
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.390682), 0 3px 10px rgba(0, 0, 0, 0.0869282)
+        border-radius: 3px
+        padding: 15px 15px
+        margin: 0
+        display: flex
+        flex-direction: column
+      &-link
+        position: relative
+        font-size: 14px
+        color: #2580B2
+        padding-left: 12px
+        +ease
+        &::before
+          position: absolute
+          content: ''
+          width: 4px
+          height: 4px
+          left: 0
+          top: 7px
+          background-color: #81C624
+          border-radius: 50%
+        &:not(:last-child)
+          margin-bottom: 5px
 
   &__add
     position: absolute
@@ -278,6 +324,7 @@ button
         opacity: .8
 
   &__cabinet
+    position: relative
     &-button
       display: flex
       align-items: center
@@ -297,6 +344,51 @@ button
         fill: #fff
       &:hover
         opacity: .8
+    &-dropdown
+      position: absolute
+      z-index: 4
+      top: 100%
+      right: 0
+      padding-top: 25px
+      +ease
+      visibility: hidden
+      opacity: 0
+      transform: translateY(-20px)
+      transition: all .4s cubic-bezier(.23,1,.32,1)
+      +r(700)
+        padding-top: 15px
+      &-list
+        width: 150px
+        background-color: #fff
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.390682), 0 3px 10px rgba(0, 0, 0, 0.0869282)
+        border-radius: 3px
+        padding: 15px 15px
+        margin: 0
+        display: flex
+        flex-direction: column
+      &-link
+        position: relative
+        font-size: 14px
+        color: #2580B2
+        padding-left: 12px
+        +ease
+        &::before
+          position: absolute
+          content: ''
+          width: 4px
+          height: 4px
+          left: 0
+          top: 7px
+          background-color: #81C624
+          border-radius: 50%
+        &:not(:last-child)
+          margin-bottom: 5px
+
+    &:hover
+      .header__cabinet-dropdown
+        visibility: visible
+        opacity: 1
+        transform: translateY(0)
   &__hamburger
     display: none
     +r(866)
@@ -646,6 +738,28 @@ button
 
       &-figure
         position: absolute
+        width: calc(100% + 4px)
+        height: calc(100% + 4px)
+        top: -2px
+        right: -2px
+        bottom: -2px
+        left: -2px
+        transform: rotate(-90deg)
+        circle
+          fill: transparent
+          stroke: #74bc6b
+          stroke-width: 2
+          stroke-dasharray: 124
+          +ease
+        &[data-perc='88']
+          circle
+            stroke-dashoffset: 12
+        &[data-perc='100']
+          circle
+            stroke-dasharray: 0
+        &:hover
+          circle
+            stroke: #a5d475
       &-value
         position: absolute
         font-weight: 500
